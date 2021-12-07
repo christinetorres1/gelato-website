@@ -1,0 +1,230 @@
+/*
+
+COLOUR PALETTE
+
+orange accent       ff8e2d
+teal                20abad
+darker teal         007c84
+off-white           eeeaeb
+
+GOOGLE FONTS 
+
+font-family: 'Poppins', sans-serif;
+font-family: 'Pacifico', cursive;
+
+*/
+
+/* UNIVERSAL STYLES */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #20abad;
+    color: #eeeaeb;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    width: 100%;
+    font-size: 2.25rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+h1 a, ul.menu a {
+    color: #eeeaeb;
+    text-decoration: none;
+}
+
+/* Step 1: Style all the menu links on smallest screen */
+
+ul.menu a {
+    text-transform: uppercase;
+    display: block;
+    padding: 1rem;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+ul.menu a:hover,
+ul.menu a:active,
+ul.menu a:focus,
+ul.menu a:focus-within {
+    background-color: #ff8e2d;
+    border-radius: 5px;
+}
+
+ul.submenu > li a {
+    text-decoration: none;
+}
+
+ul.submenu {
+    padding: 0 1rem;
+}
+
+ul.menu li:last-child {
+    padding-bottom: 2rem;
+}
+
+svg {
+    display: none;
+}
+
+/* HERO BANNER */
+
+header section {
+    background: left / cover url('../img/grapefruit-bg-sm.jpg');
+}
+
+.flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem;
+
+}
+
+.flex-wrapper h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+}
+
+.flex-wrapper p {
+    margin: 2rem;
+    font-size: 1.25rem;
+}
+
+.flex-wrapper p a {
+    background-color: #009ba3;
+    padding: 1rem;
+    border-radius: 10px;
+    text-transform: uppercase;
+    color: #eeeaeb;
+}
+/* MOBILE VIEW */
+
+
+/* DESKTOP VIEW */
+@media screen and (min-width: 720px) {
+
+    nav {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    svg {
+        display: block;
+        width: 1rem;
+        margin-left: 0.75rem;
+    }
+
+    svg path {
+        fill: #f5f5f5;
+    }
+
+    ul.menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    ul.menu > li {
+        margin: 1rem;
+    }
+
+    ul.menu li {
+        flex: 1 0 auto;
+        text-align: center;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    ul.menu li:last-child {
+        padding-bottom: 0;
+    }
+
+    li.dropdown > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Position and hide the dropdown menu */
+
+    ul.submenu {
+        background-color: #007c84;
+        min-width: 100%;
+        padding: 0;
+        border-radius: 0 0 5px 5px;
+        position: absolute;
+        visibility: hidden;
+        left: 0;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    ul.submenu li {
+        text-align: left;
+    }
+
+    /* Add hover state that shows the submenu */
+
+    ul.menu li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+
+    }
+
+    ul.submenu a:hover {
+        background-color: #007c84;
+        text-decoration: underline;
+    }
+
+    /* 
+        add accessibility with the :focus-within state on the list items
+    */
+
+    ul.menu li:focus-within > ul, 
+    ul.menu li > ul:focus {
+        visibility: visible;
+        opacity: 1;
+        display: block;
+    }
+
+    header section {
+        padding: unset;
+        background: left / cover url('../img/grapefruit-bg.jpg');
+    }
+
+    .flex-wrapper {
+        width: 100%;
+        min-height: calc(100vh - 10.875rem);
+        margin: auto;
+        padding: 2rem;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .flex-wrapper h2 {
+        margin-right: 2rem;
+    }
+
+    .flex-wrapper p {
+        width: 30ch;
+    }
+
+}
+
+/* LARGEST VIEW */
+@media screen and (min-width: 1024px) {
+    
+    .flex-wrapper {
+        max-width: 1024px; 
+    }
+   
+}
